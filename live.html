@@ -76,14 +76,19 @@
   </nav>
 
   <!-- Live Stream Embed (Twitch) -->
-  <div class="video-container">
-    <iframe 
-      src="https://www.twitch.tv/achoranmedianetwork" 
-      height="480" 
-      width="100%" 
-      frameborder="0" 
-      allowfullscreen>
-    </iframe>
+<div class="video-container">
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+    <div id="twitch-player"></div>
+    <script type="text/javascript">
+      var options = {
+        width: 800,
+        height: 450,
+        channel: "achoranmedianetwork",
+        parent: ["example.com", "anotherexample.com"]
+      };
+      var player = new Twitch.Player("twitch-player", options);
+      player.setVolume(0.5);
+    </script>
   </div>
 
   <!-- Bootstrap JS -->
