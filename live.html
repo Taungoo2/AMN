@@ -69,20 +69,7 @@
   </nav>
 
   <!-- Live Stream Embed (Twitch) -->
-  <div class="video-container">
-    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
-    <div id="twitch-player"></div>
-    <script type="text/javascript">
-      var options = {
-        width: "100%",  /* Use 100% of the container's width (80% of the screen) */
-        height: "100%", /* Use 100% of the container's height (80% of the screen) */
-        channel: "achoranmedianetwork",
-        parent: ["example.com", "anotherexample.com"]
-      };
-      var player = new Twitch.Player("twitch-player", options);
-      player.setVolume(0.5);
-    </script>
-  </div>
+<div><div class="twitch-embed-container" style="aspect-ratio:16/9;max-width:none;min-width:100%!important;"><iframe src="https://player.twitch.tv/?channel=achoranmedianetwork&parent=taungoo2.github.io&autoplay=false&muted=false&time=0s" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div><p class="powered-by">Powered by <a href="https://www.streamweasels.com/tools/twitch-embed-code-generator/" target="_blank">StreamWeasels Twitch Embed Generator</a></p></div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-Q6E4+F1Vx4g6a9v3zC0q4vj2zN1mF+z5W3Np+fPmFaSppQ6LtTddg0Jv2XQsTh2S" crossorigin="anonymous"></script>
