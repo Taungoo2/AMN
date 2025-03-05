@@ -42,6 +42,29 @@
     .navbar-light {
       background-color: #333;
     }
+    .navbar {
+  position: relative;
+  z-index: 1000;
+  }
+
+  .navbar .navbar-nav {
+  justify-content: center; /* or left/right based on preference */
+  }
+
+  .navbar-collapse {
+  flex-basis: auto !important;
+  align-items: center;
+  }
+
+  .content {
+  margin-top: 80px; /* if the navbar overlaps content on mobile screens */
+  }
+
+@media (max-width: 768px) {
+  .content {
+    margin-top: 80px;
+  }
+}
 
     .navbar-light .navbar-brand, 
     .navbar-light .navbar-nav .nav-link {
