@@ -25,6 +25,7 @@
             border-radius: 8px;
             background: #222;
             padding: 5px;
+            cursor: pointer; /* Indicate interactivity */
         }
     </style>
 </head>
@@ -57,12 +58,24 @@
                 videoElement.src = folderPath + filename;
                 videoElement.controls = true; // Adds play/pause controls
                 videoElement.style.maxHeight = "250px"; // Limit video height
+                videoElement.addEventListener("click", () => toggleFullscreen(videoElement));
                 container.appendChild(videoElement);
             } else {
                 const imgElement = document.createElement("img");
                 imgElement.src = folderPath + filename;
                 imgElement.alt = "Media";
+                imgElement.addEventListener("click", () => toggleFullscreen(imgElement));
                 container.appendChild(imgElement);
+            }
+        }
+
+        function toggleFullscreen(element) {
+            if (!document.fullscreenElement) {
+                element.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable fullscreen mode: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
             }
         }
     </script>
