@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #media-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 10px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        img, video {
+            width: 100%; /* Make images/videos fit within grid cells */
+            height: auto;
+            border-radius: 8px;
+            background: #222;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Media Gallery</h1>
+    <div id="media-container"></div>
+
+    <script>
+        const folderPath = "/..gallery/"; // Adjust to your actual folder path
+        const container = document.getElementById("media-container");
+
+        // Generate .webp images (1 to 147)
+        for (let i = 1; i <= 147; i++) {
+            addMedia(`${i}.webp`);
+        }
+
+        // Generate .mp4 videos (1 to 10)
+        for (let i = 1; i <= 10; i++) {
+            addMedia(`${i}.mp4`, "video");
+        }
+
+        // Specific .png images
+        const pngFiles = [7, 17, 66, 67, 125];
+        pngFiles.forEach(num => addMedia(`${num}.png`));
+
+        function addMedia(filename, type = "image") {
+            if (type === "video") {
+                const videoElement = document.createElement("video");
+                videoElement.src = folderPath + filename;
+                videoElement.controls = true; // Adds play/pause controls
+                videoElement.style.maxHeight = "250px"; // Limit video height
+                container.appendChild(videoElement);
+            } else {
+                const imgElement = document.createElement("img");
+                imgElement.src = folderPath + filename;
+                imgElement.alt = "Media";
+                container.appendChild(imgElement);
+            }
+        }
+    </script>
+
+</body>
+</html>
